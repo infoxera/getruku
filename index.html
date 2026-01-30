@@ -81,14 +81,23 @@
       .sub{ max-width: 34ch; }
     }
 
-  body {
+  html, body {
   overflow-x: hidden;
 }
 
+/* Wrapper clips overflow so zoom doesn't create side-scroll */
+.banner-wrap {
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Center the oversized banner reliably */
 @media (max-width: 520px) {
   .banner {
     width: 130%;
-    margin-left: -15%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
     
@@ -115,9 +124,11 @@
           </a>
         </div>
 
-        <div class="banner">
-          <img src="Ruku_Homepage_Banner.png" alt="Ruku app preview screenshots" />
-        </div>
+        <div class="banner-wrap">
+  <div class="banner">
+    <img src="Ruku_Homepage_Banner.png" alt="Ruku app preview screenshots" />
+  </div>
+</div>
       </section>
     </main>
 
